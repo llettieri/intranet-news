@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const url = process.env.REACT_APP_API_BASE_URL;
 
 //Create
@@ -13,6 +15,13 @@ export async function addPost(post) {
 
 //Read
 export async function getPostByID(id) {
+    return axios.get(url + 'post/' + id)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
 }
 
 export async function getAllPosts() {
